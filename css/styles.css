@@ -1,0 +1,148 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Fuzzy Bubbles", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+    height: 10px; /* Altura del scrollbar (en caso de scroll horizontal) */
+  }
+  
+  /* Estilo del fondo del scrollbar */
+  ::-webkit-scrollbar-track {
+    background: white; /* Color del fondo del track */
+  }
+  
+  /* Estilo de la parte deslizante (thumb) */
+  ::-webkit-scrollbar-thumb {
+    background: white; /* Color del thumb */
+    border-radius: 10px;
+  }
+  
+  /* Estilo del thumb cuando se pasa el cursor sobre él */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d3d2d2; /* Color del thumb cuando se pasa el cursor sobre él */
+  }
+
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  span{
+    color: white;
+    text-shadow: 1px 1px 8px white;
+  }
+.cont{
+    width: 85%;
+    height: 40vh;
+    margin: 390px auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
+.cont .foto{
+    width: auto;
+    height: 68.5vh;
+    
+}
+.cont .foto img {
+    border-radius: 30px;
+}
+
+.cont .parra{
+    width: 90%;
+    height: 40vh;
+    padding: 5px;
+    margin: 90px auto;
+    text-align: center;
+}
+
+.cont .parra p{
+    padding-top: 5vh;
+}
+
+.inv{
+    width: 100%;
+    height: 50vh;
+    background: #f4c4f3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(301, 96%, 70%, 0.629), hsla(301, 69%, 86%, 0.455)), url(../img/f1.png);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsl(301, 96%, 70%, 0.629), hsl(301, 69%, 86%, 0.455)), url(../img/f1.png); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contador {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .contador span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #030303;
+  }
+
+  .padrinos{
+    width: 100%;
+    height: 120vh;
+    background-color: #f491aa;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .padrinos .co{
+    width: 90%;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .salon{
+    width: 100%;
+    height: 120vh;
+    background-color: gold;
+  }
+
+  @media (max-width: 800px) {
+    nav h1{
+        font-size: 1.5rem;
+    }
+    .cont{
+        
+        display: flex;
+        flex-direction: column;
+    }
+    .cont .foto{
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cont .foto img {
+        width: 340px;
+        margin-bottom: 60px;
+    }
+    .cont .parra p{
+        font-size: .8rem;
+    }
+  }

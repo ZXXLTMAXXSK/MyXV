@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">   
+    <title>Mis XV Daniela</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          Swal.fire({
+            title: '🎟️ Invitación personal',
+            text: 'Esta invitación solo tiene 4 boletos personales',
+            icon: 'info',
+            confirmButtonText: 'Entendido',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            background: '#ffffff',
+            color: '#000000',
+            backdrop: `
+              rgba(255, 255, 255, 0.9)
+              left top
+              no-repeat
+            `
+          });
+        });
+      </script>
+    <div class="cont">
+        <div class="foto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnLR_z5kK7WP61JTWmXoQoSjnl2RFL7C3Ydg&s" width="340px">
+        </div>
+        <div class="parra">
+            <h1>
+                MIS XV AÑOS
+            </h1>
+            <h2>
+                DANIELA
+            </h2>
+            <p>
+                Al cumplir 15 años, inicio un nuevo capítulo en mi vida, dejando atrás la niñez y dando los primeros pasos hacia una nueva etapa llena de sueños, ilusiones y aprendizajes.
+                <br> <br>
+                Esta celebración no solo es una fiesta, es el reflejo de mi agradecimiento a quienes me han acompañado hasta aquí y de la emoción que siento al compartir este momento tan especial.
+            </p>
+        </div>
+    </div>
+
+
+    <section class="padrinos">
+        <div class="co">
+            <h2>
+                <span>Mis Padrinos</span>
+                <h3>Virginia Fernandez Alvares</h3>
+                <h3>Agustin Lorem, ipsum dolor.</h3>
+            </h2>
+            <br>
+            <h2>
+                <span>Mis Papás</span>
+                <h3>Renato Navarro Fernandez</h3>
+                <h3>Patricia de la Cruz Bautista</h3>
+            </h2>
+        </div>
+      </section>
+      <section class="salon">
+    
+      </section>
+      <section class="misa">
+    
+      </section>
+
+    
+    <section class="inv">
+        <div id="cuenta-regresiva" class="contador">
+            <div><span id="dias">00</span><br>Días</div>
+            <div><span id="horas">00</span><br>Horas</div>
+            <div><span id="minutos">00</span><br>Min</div>
+            <div><span id="segundos">00</span><br>Seg</div>
+          </div>
+          
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
+<script>
+    let alertaVerticalMostrada = false;
+    let alertaHorizontalMostrada = false;
+
+    function estaEnVertical() {
+        return window.innerWidth < window.innerHeight;
+    }
+
+    function estaEnHorizontal() {
+        return window.innerWidth > window.innerHeight;
+    }
+
+    function centrarSeccionInv() {
+        const seccion = document.querySelector('.inv');
+        if (seccion) {
+            seccion.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+
+    function mostrarAlertaVertical() {
+        if (estaEnVertical() && !alertaVerticalMostrada) {
+            alertaVerticalMostrada = true;
+            centrarSeccionInv(); // centramos la sección
+            Swal.fire({
+                title: '📱 Rota tu teléfono',
+                text: 'Para ver la invitación completa, pon tu teléfono en horizontal y da clic en Entendido.',
+                icon: 'info',
+                confirmButtonText: 'Entendido',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+                background: '#ffffff',
+                color: '#000000',
+                backdrop: `
+                    rgba(255, 255, 255, 1)
+                    left top
+                    no-repeat
+                `
+            });
+        }
+    }
+
+    function mostrarAlertaHorizontal() {
+    if (estaEnHorizontal() && !alertaHorizontalMostrada) {
+        alertaHorizontalMostrada = true;
+
+        Swal.fire({
+            title: '🔁 Cambia a modo vertical',
+            text: 'Para seguir navegando, pon tu teléfono en posición vertical.',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            background: '#ffffff',
+            color: '#000000',
+            backdrop: `
+                rgba(255, 255, 255, 1)
+                left top
+                no-repeat
+            `
+        }).then(() => {
+            // Cuando el usuario le da a OK, lo llevamos al inicio
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+    function reiniciarAlertas() {
+        alertaVerticalMostrada = false;
+        alertaHorizontalMostrada = false;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                mostrarAlertaVertical();
+                alertaHorizontalMostrada = false;
+            } else {
+                mostrarAlertaHorizontal();
+                alertaVerticalMostrada = false;
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    const seccionInv = document.querySelector('.inv');
+    observer.observe(seccionInv);
+
+    window.addEventListener('resize', reiniciarAlertas);
+    window.addEventListener('orientationchange', reiniciarAlertas);
+</script>
+
+<script>
+    // Fecha del evento: sábado 20 de diciembre a las 6:00 PM
+    const fechaEvento = new Date('December 20, 2025 18:00:00').getTime();
+  
+    const actualizarContador = () => {
+      const ahora = new Date().getTime();
+      const diferencia = fechaEvento - ahora;
+  
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+  
+      document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+      document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+      document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+      document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+    };
+  
+    setInterval(actualizarContador, 1000);
+    actualizarContador(); // Llamada inicial
+  </script>
+
+
+  
+
+</body>
+</html>
